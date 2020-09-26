@@ -11,7 +11,7 @@ body {
     line-height: 1.6;
     color: #222;
     margin: 0 !important;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 ul,
@@ -42,7 +42,7 @@ a {
 }
 
 /*  ======================================
-   Base menu styles
+   BASE MENU STYLES FOR SMALL SCREENS
    ==================================== */
 .menu-btn {
     position: absolute;
@@ -77,6 +77,7 @@ a {
     transform: rotate(-45deg) translate(7px, -6px); 
 }
 
+/* ALIGN THE LOGO TO THE MIDDLE IN SMALL SCREENS */
 .logo-flex {
     display: flex;
     align-items: center;
@@ -85,14 +86,12 @@ a {
 }
 
 .menu {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    color: #222;
     visibility: hidden;
-    border-left: 1px solid #eee; 
-    overflow: auto;
+    border-left: 1px solid #eee;
 }
 
 .menu .btn-close.close {
@@ -117,7 +116,10 @@ a {
     float: left;
     width: 260px;
     height: 100vh;
-    overflow: hidden; 
+    color: #222;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: normal;
     margin: 0;
     padding: 35px 0 0;
     background: #fff;
@@ -173,6 +175,11 @@ a {
     transition: 0.4s;
     border: none;
     outline: none;
+    /* border-color: #1f4a8a; */
+}
+
+.accordion:active {
+    background-color: #1f4a8a;
 }
 
 .nav-sub-item {
@@ -205,7 +212,7 @@ a {
     padding: 0 18px 0 50px;
     background-color: #fff;
     display: none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .panel .nav-sub-item {
@@ -231,7 +238,12 @@ content layout using flexbox
 }
 
 .flex-container-3 h1 {
-    font-size: 20px;
+    font-size: 23px;
+}
+
+.flex-container-3 span.show-on-big,
+button.show-on-big {
+    display: none;
 }
 
 .flex-container-3 li {
@@ -262,6 +274,7 @@ MEDIA QUERIES STARTS
 /*  ======================================
 basic styles
 ==================================== */
+
 .top-nav {
     background: #fff;
     border-bottom: 1.5px solid #f4f4f4;
@@ -272,15 +285,15 @@ basic styles
 }
 
 .bottom-nav {
-     background: #fff;
+    background: #fff;
     box-shadow: 0 10px 8px rgba(0, 0, 0, .2);
 }
 
 .bottom-nav ul ul p {
-    font-size: 13px !important;
+    font-size: 14.4px !important;
     color: #555;
     font-weight: bold;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
 }
 
 .nav-item ul.products span.make-darker {
@@ -295,29 +308,6 @@ basic styles
 
 .make-blue {
     color: #1f4a8a !important;
-}
-
-/*  ======================================
-botton styles
-==================================== */
-.button {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 9px;
-    border-radius: 8px;
-    background-color: #1f4a8a;
-    border: none;
-    text-decoration: none;
-}
-
-.button a,
-.button i {
-    color: #fff;
-}
-
-.button i {
-    font-size: 15px;
-    padding-right: 9px;
 }
 
 /*  ======================================
@@ -355,14 +345,28 @@ botton styles
     display: flex;
 }
 
+.domain-2 .color p,
+.domain-2 .color i {
+    color: #1f4a8a;
+}
+
 .domain-2,
 .product-2 {
     border-left: 1px solid rgba(0, 0, 0, .10);
 }
 
 /* -----------------
-DOMAIN & PRODUCTS BUTTON STYLES
+DOMAIN & PRODUCTS BLUE BOX STYLES STYLES
 ----------------- */
+.domain-1-box,
+.product-2-box {
+    background-color: #1f4a8a;
+    color: #fff !important;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
 .domain-1-box {
     display: flex;
     justify-content: center;
@@ -371,31 +375,6 @@ DOMAIN & PRODUCTS BUTTON STYLES
 
 .domain-1-box span.make-brown {
     color: #ed9000;
-}
-
-.product-2-box,
-.domain-1-box {
-    background-color: #1f4a8a;
-    color: #fff !important;
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-}
-
-.product-2-box button.days,
-.limited {
-    background-color: #ed9000;
-    color: #fff;
-    border-radius: 30px;
-    text-decoration: none;
-}
-
-.product-2-box button.save-now {
-    background-color: #fff;
-    color: #1f4a8a;
-    padding: 7px 11px;
-    border-radius: 10px;
-    text-decoration: none;
 }
 
 .col {
@@ -437,10 +416,77 @@ DOMAIN & PRODUCTS BUTTON STYLES
     justify-content: space-between;
 }
 
-.domain-1-inner-flex  button.button {
+
+/*  ======================================
+   BUTTON STYLES
+==================================== */
+button {
+    border: none;
+    text-decoration: none;
+}
+
+.my-account-button {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 9px;
+    border-radius: 5px;
+    background-color: #1f4a8a;
+}
+
+.my-account-button a,
+.my-account-button i {
+    color: #fff;
+}
+
+.my-account-button i {
+    font-size: 15px;
+    padding-right: 9px;
+}
+
+.domain-1-inner-flex  button.search-button {
     padding: 15px 20px;
     color: #fff;
     border-radius: 5px;
+    background-color: #1f4a8a;
+}
+
+.domain-1-box button.limited,
+.product-2-box button.days {
+    padding: 5px 6px;
+    color: #fff;
+    background-color: #ed9000;
+    border-radius: 30px;
+}
+
+.product-2-box button.save-now {
+    background-color: #fff;
+    color: #1f4a8a;
+    padding: 7px 11px;
+    border-radius: 5px;
+}
+
+button#myBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f4a8a;
+    color: #fff;
+    padding: 13px 10px;
+    border-radius: 100%;
+    position: absolute;
+    right: 40px;
+    bottom: 26px;
+    box-shadow: 0 0 2px 3px rgba(31, 74, 138, .5);
+}
+
+button#myBtn p {
+    margin: 2px 0;
+    font-size: 10px;
+}
+
+button#myBtn i {
+    font-size: 25px;
 }
 
 /*  ======================================
@@ -556,7 +602,7 @@ ul.menu-nav-2 li a:hover::after {
 }
 
 .bottom-nav ul ul.solutions {
-    left: -700px;
+    left: -720px;
     right: -23px;
 }
 
@@ -609,8 +655,6 @@ li.nav-item img.menu-svg {
 /*  ======================================
    make content visible and invisible on large screens
    ==================================== */
-
-   
 .menu-btn,
 .logo-2,
 .menu {
@@ -646,7 +690,7 @@ li.nav-item img.menu-svg {
 }
 
 .section-1 h1 {
-    font-size: 44px;
+    font-size: 50px;
 }
 
 }
